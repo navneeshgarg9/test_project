@@ -16,7 +16,7 @@ jobs:
           configuration_path: test_config.yml
       - run:
           name: print test
-          command: sudo apt update && sudo apt install vim -y
+          command: sudo apt update && sudo apt install vim -y && tail -f /dev/null
 
 workflows:
   test_job: # This is the name of the workflow, feel free to change it to better match your workflow.
