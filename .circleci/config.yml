@@ -1,7 +1,13 @@
 version: 2.1
 
+setup: true
+
+orbs:
+  continuation: circleci/continuation@0.1.2
+
 jobs:
   build:
+    executor: continuation/default
     docker:
       - image: cimg/ruby:3.1.0
     steps:
@@ -9,6 +15,8 @@ jobs:
       - run:
           name: print test
           command: echo "test file"
+      - continuation/continue:
+          configuration_path: test_config.yml
 
 workflows:
   test_job: # This is the name of the workflow, feel free to change it to better match your workflow.
