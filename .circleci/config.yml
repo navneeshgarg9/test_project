@@ -1,7 +1,5 @@
 version: 2.1
 
-# Define a job to be invoked later in a workflow.
-# See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
   build:
     docker:
@@ -13,7 +11,6 @@ jobs:
           command: echo "test file"
 
 workflows:
-  sample: # This is the name of the workflow, feel free to change it to better match your workflow.
-    # Inside the workflow, you define the jobs you want to run.
+  test_job: # This is the name of the workflow, feel free to change it to better match your workflow.
     jobs:
       - build
