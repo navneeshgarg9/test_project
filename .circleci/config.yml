@@ -1,14 +1,22 @@
 version: 2.1
 
+setup: true
+
+orbs:
+  continuation: circleci/continuation@0.1.2
+
 jobs:
   build:
+    executor: continuation/default
     docker:
       - image: cimg/ruby:3.1.0
     steps:
       - checkout
+      - continuation/continue:
+          configuration_path: ./.circleci/test_config.yml
       - run:
           name: print test
-          command: echo "test file"
+          command: sudo apt update && sudo apt install vim -y && sudo apt install bind-utils && navu
 
 workflows:
   test_job: # This is the name of the workflow, feel free to change it to better match your workflow.
