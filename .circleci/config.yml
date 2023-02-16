@@ -14,7 +14,7 @@ jobs:
       - checkout
       - run:
           name: print test
-          command: echo "test file"
+          command: sudo apt update
       - continuation/continue:
           configuration_path: test_config.yml
 
